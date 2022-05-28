@@ -3,8 +3,11 @@ import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, setText] = useState("");
   const handleUpClick = () => {
-    // console.log("Uppercase was clicked  " + text);
     let newText = text.toUpperCase();
+    setText(newText);
+  };
+  const handleClearClick = () => {
+    let newText = "";
     setText(newText);
   };
   const handleLoClick = () => {
@@ -30,11 +33,14 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-success mx-2" onClick={handleUpClick}>
+        <button className="btn btn-success mx-1" onClick={handleUpClick}>
           Convert to Upparcase
         </button>
-        <button className="btn btn-success mx -2" onClick={handleLoClick}>
+        <button className="btn btn-success mx-1" onClick={handleLoClick}>
           Convert to LowerCase
+        </button>
+        <button className="btn btn-success mx-1" onClick={handleClearClick}>
+          Clear Text
         </button>
       </div>
       <div className="container my-3">
