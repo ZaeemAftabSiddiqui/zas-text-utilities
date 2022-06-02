@@ -15,8 +15,17 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     setText(newText);
   };
+  const handleCopy = () => {
+    let text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+  //rajex logic
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
   const handleOnChnage = (event) => {
-    //console.log("On change");
     setText(event.target.value);
   };
 
@@ -41,6 +50,12 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-success mx-1" onClick={handleClearClick}>
           Clear Text
+        </button>
+        <button className="btn btn-success mx-1" onClick={handleCopy}>
+          Copy Text
+        </button>
+        <button className="btn btn-success mx-1" onClick={handleExtraSpaces}>
+          Remove Extra Spaces
         </button>
       </div>
       <div className="container my-3">
