@@ -5,25 +5,30 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase!", "success");
   };
   const handleClearClick = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Text cleared!", "success");
   };
   const handleLoClick = () => {
     // console.log("Uppercase was clicked  " + text);
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to lowercase!", "success");
   };
   const handleCopy = () => {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text copy to clipboard!", "success");
   };
   //rajex logic
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Extra spaces removed!", "success");
   };
   const handleOnChnage = (event) => {
     setText(event.target.value);
