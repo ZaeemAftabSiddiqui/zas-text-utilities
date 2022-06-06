@@ -22,6 +22,7 @@ export default function TextForm(props) {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Text copy to clipboard!", "success");
   };
   //rajex logic
@@ -56,22 +57,36 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
         </div>
-        <button className="btn btn-success mx-1 my-1" onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleUpClick}
+        >
           Convert to Upparcase
         </button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleLoClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleLoClick}
+        >
           Convert to LowerCase
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-success mx-1 my-1"
           onClick={handleClearClick}
         >
           Clear Text
         </button>
-        <button className="btn btn-success mx-1 my-1" onClick={handleCopy}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-success mx-1 my-1"
+          onClick={handleCopy}
+        >
           Copy Text
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-success mx-1 my-1"
           onClick={handleExtraSpaces}
         >
