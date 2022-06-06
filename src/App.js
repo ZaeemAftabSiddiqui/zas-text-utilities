@@ -26,7 +26,7 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#09492b";
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtils - Dark Mode";
+      // document.title = "TextUtils - Dark Mode";
       // this is to blink title
       // setInterval(() => {
       //   document.title = "TextUtils is amazing";
@@ -38,7 +38,7 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtils - Light Mode";
+      // document.title = "TextUtils - Light Mode";
     }
   };
   return (
@@ -49,14 +49,14 @@ function App() {
       <Alert alert={alert} />
       <div className="container my -3">
         <Routes>
-          <Route exact path="/about" element={<About />} />
+          <Route exact path="/about" element={<About mode={mode} />} />
           <Route
             exact
             path="/"
             element={
               <TextForm
                 showAlert={showAlert}
-                heading="Enter your text to analyze below"
+                heading="Try TextUtiles - Word Counter, Character to word counter,Remove extra spaces"
                 mode={mode}
               />
             }
