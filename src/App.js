@@ -42,7 +42,7 @@ function App() {
   };
   return (
     <Router>
-      <Navbar title="ZAS-Text-Utils" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="ZAS-Text-Utilities" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my -3">
         <Routes>
